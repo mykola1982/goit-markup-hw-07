@@ -48,6 +48,11 @@ img {
   display: block;
 }
 
+.list {
+  list-style: none;
+}
+
+
 /*-----------стоворюємо контейнер------------------*/
 .container {
   width: 1200px;
@@ -74,10 +79,6 @@ img {
   letter-spacing: 0.03em;
 }
 
-/*прибирання крапок біля списку*/
-.list {
-  list-style: none;
-}
 
 /*----------- стилізація header------------------*/
 .header {
@@ -94,34 +95,40 @@ img {
   font-size: 26px;
   line-height: 1.19;
   text-decoration: none;
+  display: block;
+}
+
+.header__logo {
   margin-right: 93px;
 }
 
+
 /*стилизація чорної частини логотипу */
-.logo-black {
+.logo--dark {
   color: #212121;
 }
+
+
 
 .header .container {
   display: flex;
   align-items: center;
 }
 
-.site-nav {
+/*стилізація навігації сайту*/
+
+.nav {
   display: flex;
 }
 
-.contact-nav {
-  display: flex;
-  margin-left: auto;
-}
 
-.site-nav-item:not(:last-child) {
+
+.nav__item:not(:last-child) {
   margin-right: 50px;
 }
 
-/*стилізація навігації сайту*/
-.site-nav .link {
+
+.nav__link {
   position: relative;
   text-decoration: none;
   color: #212121;
@@ -134,16 +141,16 @@ img {
   transition: color 250ms var(--timing-function);
 }
 
-.site-nav .link:hover,
-.site-nav .link:focus {
+.nav__link:hover,
+.nav__link:focus {
   color: var(--brand-color);
 }
 
-.site-nav .link.curret {
+.snav__link.curret {
   color: var(--brand-color);
 }
 
-.site-nav .link.curret::after {
+.nav__link.curret::after {
   position: absolute;
   content: '';
   width: 100%;
@@ -155,7 +162,15 @@ img {
 }
 
 /*стилізація навігаціі контактів*/
-.contact-nav .link {
+.contact {
+  display: flex;
+}
+
+.header__contact {
+  margin-left: auto;
+}
+
+.contact__link {
   color: #757575;
   font-weight: 500;
   font-size: 14px;
@@ -167,23 +182,23 @@ img {
   transition: color 250ms var(--timing-function);
 }
 
-.contact-nav-item:not(:last-child) {
+.contact__item:not(:last-child) {
   margin-right: 30px;
 }
 
-.contact-nav-item {
+.contact__item {
   display: flex;
   align-items: center;
 }
 
-.contact-icon {
+.contact__icon {
   display: block;
   margin-right: 10px;
   fill: currentColor;
 }
 
-.contact-nav .link:hover,
-.contact-nav .link:focus {
+.contact__link:hover,
+.contact__link:focus {
   color: var(--brand-color);
 }
 
@@ -194,7 +209,6 @@ img {
   padding-bottom: 200px;
   margin: 0 auto;
   max-width: 1600px;
-
   background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url('../images/photo_hero.jpg');
   background-position: center;
@@ -203,7 +217,7 @@ img {
 }
 
 /*переводить текст заголовка героя в верхній регістр*/
-.hero-title {
+.hero__title {
   color: #ffffff;
   font-weight: 900;
   font-size: 44px;
@@ -211,13 +225,12 @@ img {
   text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-
   max-width: 696px;
   margin: 0 auto 30px;
 }
 
 /*стилізація кнопки героя*/
-.btn-primery {
+.btn {
   min-width: 200px;
   height: 50px;
   display: block;
@@ -232,16 +245,26 @@ img {
 
   border: 1px solid var(--brand-color);
   border-radius: 4px;
+  transition: box-shadow 250ms var(--timing-function);
+}
+
+.btn:hover,
+.btn:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
-/*стилізація секцій   якійсь брєд не розібрався з94 */
+.hero__btn {
+  margin: 0 auto;
+}
+
+
+/*стилізація секцій    */
 .section {
   padding-top: 94px;
   padding-bottom: 94px;
 }
 
-.section-title {
+.title {
   color: var(--title-text-color);
   font-weight: 700;
   font-size: 36px;
@@ -252,35 +275,21 @@ img {
 
 /*стилізація секції з перевагами*/
 
-.section-feature {
+.feature {
   padding-bottom: 47px;
 }
 
-.feature-list {
+.feature__list {
   display: flex;
   margin-left: -30px;
 }
 
-.feature-list-item {
+.feature__item {
   flex-basis: calc(100% / 4 - 30px);
   margin-left: 30px;
 }
 
-.feature-list .title {
-  color: var(--title-text-color);
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.feature-list .text {
-  font-size: 14px;
-  line-height: 1.72;
-}
-
-.feature-thumb {
+.feature__thumb {
   width: 100%;
   height: 120px;
   background-color: #f5f4fa;
@@ -291,27 +300,42 @@ img {
   display: flex;
 }
 
+.feature__title {
+  color: var(--title-text-color);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.feature__text {
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+
 /*стилізація секції чим ми займаємося*/
 
-.section-work {
+.work {
   padding-top: 47px;
 }
 
-.work-list {
+.work__list {
   display: flex;
   margin-left: -30px;
 }
 
-.work-list-item {
+.work__item {
   flex-basis: calc(100% / 3 - 30px);
   margin-left: 30px;
 }
 
-.work-thumb {
+.work__thumb {
   position: relative;
 }
 
-.work-content {
+.work__content {
   display: flex;
   position: absolute;
   justify-content: center;
@@ -331,16 +355,17 @@ img {
 }
 
 /*стилізація секції наша команда*/
-.section-team {
+
+.team {
   background-color: #f5f4fa;
 }
 
-.team-list {
+.team__list {
   display: flex;
   margin-left: -30px;
 }
 
-.team-list-item {
+.team__item {
   flex-basis: calc(100% / 4 - 30px);
   margin-left: 30px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -349,7 +374,12 @@ img {
   background-color: #ffffff;
 }
 
-.team-list .title {
+
+
+
+
+
+.team-content__title {
   color: var(--title-text-color);
   font-weight: 500;
   font-size: 16px;
@@ -358,7 +388,7 @@ img {
   margin-bottom: 10px;
 }
 
-.team-list .text {
+.team-content__text {
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
@@ -369,72 +399,81 @@ img {
   padding-bottom: 30px;
 }
 
-.team-soc-list {
+.socials {
   display: flex;
-  margin-top: 16px;
   justify-content: center;
 }
 
-.team-soc-item {
+.team__socials {
+  margin-top: 16px;
+}
+
+.socials__item {
   width: 44px;
   height: 44px;
   margin-right: 10px;
 }
 
-.team-soc-item:last-child {
+.socials__item:last-child {
   margin-right: 0;
 }
 
-.team-soc-link {
+.socials__link {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #afb1b8;
+   
+}
 
+.socials__link--light {
+  color: #afb1b8;
+  background-color:#ffffff;
   transition: background-color 250ms var(--timing-function), color 250ms var(--timing-function);
 }
 
-.team-soc-icom {
+.socials__link--dark {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms var(--timing-function), color 250ms var(--timing-function);
+}
+
+.socials__icon {
   fill: currentColor;
 }
 
-.team-soc-link:hover,
-.team-soc-link:focus {
+.socials__link--light:hover,
+.socials__link--light:focus {
   background-color: var(--brand-color);
   color: #ffffff;
 }
 
-/* універсальний спосіб для дітей від батька та сусідів */
-/* .team-soc-link:hover,
-.team-soc-link:focus {
-  background-color: #2196f3;
-}
+.socials__link--dark:hover,
+.socials__link--dark:focus {
+  background-color: var(--brand-color);
+  }
 
-.team-soc-link:hover .team-soc-icom,
-.team-soc-link:focus .team-soc-icom {
-  fill: #FFFFFF;
-} */
+
 /* ------------стилізація секції постійні клієнти -----------*/
 
-.client-list {
+.client__list {
   display: flex;
   justify-content: center;
 }
 
-.client-item {
+.client__item {
   width: 170px;
   height: 92px;
   margin-right: 30px;
 }
 
-.client-item:last-child {
+.client__item:last-child {
   margin-right: 0;
 }
 
-.client-link {
+.client__link {
   width: 100%;
   height: 100%;
   display: flex;
@@ -446,12 +485,12 @@ img {
   transition: color 250ms var(--timing-function), border 250ms var(--timing-function);
 }
 
-.client-icon {
+.client__icon {
   fill: currentColor;
 }
 
-.client-link:hover,
-.client-link:focus {
+.client__link:hover,
+.client__link:focus {
   color: var(--brand-color);
   border: 1px solid var(--brand-color);
 }
@@ -464,14 +503,12 @@ img {
 }
 
 /*стилизація білої частини логотипу футера */
-.logo-white {
+.logo--light {
   color: #ffffff;
 }
 
-.footer .logo {
+.footer-contact__logo {
   margin-bottom: 20px;
-  margin-right: 0;
-  display: block;
 }
 
 .footer .container {
@@ -481,7 +518,7 @@ img {
 }
 
 /*стилізація контактів футера*/
-.footer-list .link {
+.footer-contact__link {
   color: rgba(255, 255, 255, 0.6);
 
   font-size: 14px;
@@ -491,100 +528,51 @@ img {
   transition: color 250ms var(--timing-function);
 }
 
-.footer-list-item:not(:last-child) {
+.footer-contact__item:not(:last-child) {
   margin-bottom: 9px;
 }
 
-.footer-list .link.adress {
+.footer-contact__link--white {
   color: #ffffff;
 }
 
-.footer-list .link:hover,
-.footer-list .link:focus {
+.footer-contact__link:hover,
+.footer-contact__link:focus {
   color: var(--brand-color);
 }
 
+
 .footer-title {
-  display: block;
+  display: inline-block;
   margin-bottom: 20px;
   font-weight: 700;
   font-size: 14px;
   line-height: calc(16 / 14);
   letter-spacing: 0.03em;
   text-transform: uppercase;
-
   color: #ffffff;
 }
 
-.footer-soc-list {
-  display: flex;
-}
-
-.footer-soc-item {
-  width: 44px;
-  height: 44px;
-  margin-right: 10px;
-}
-
-.footer-soc-item:last-child {
-  margin-right: 0;
-}
-
-.footer-soc-link {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  transition: background-color 250ms var(--timing-function);
-}
-
-.footer-soc-icon {
-  fill: currentColor;
-}
-
-.footer-soc-link:hover,
-.footer-soc-link:focus {
-  background-color: var(--brand-color);
-}
 
 /*----------стилізація форми футера ------------ */
 
-.btn-subscribe {
+.subscribe__btn {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 200px;
-  height: 50px;
-
   margin-left: 12px;
-  color: #ffffff;
 
-  font-weight: 700;
-  font-size: 16px;
-  line-height: calc(30 / 16);
-  letter-spacing: 0.06em;
-  background-color: var(--brand-color);
   border: 1px solid var(--brand-color);
   border-radius: 4px;
 
-  transition: box-shadow 250ms var(--timing-function);
 }
 
-.btn-subscribe:hover,
-.btn-subscribe:focus {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-}
 
-.subscribe-form {
+.subscribe__form {
   display: flex;
 }
 
-.subscribe-form input {
+.subscribe__input {
   width: 358px;
   height: 50px;
   background-color: transparent;
@@ -596,12 +584,12 @@ img {
   transition: border-color 250ms var(--timing-function);
 }
 
-.subscribe-form input:hover,
-.subscribe-form input:focus {
+.subscribe__input:hover,
+.subscribe__input:focus {
   border-color: var(--brand-color);
 }
 
-.subscribe-form input::placeholder {
+.subscribe__input::placeholder {
   font-size: 16px;
   line-height: calc(20 / 16);
   align-items: center;
@@ -609,32 +597,24 @@ img {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.substrime-icon {
+.subscribe__icon {
   margin-left: 10px;
 }
 
 /*----------стилізація portfolio.html-----------*/
-.portfolio-list .title {
-  color: var(--title-text-color);
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 2;
-  letter-spacing: 0.06em;
-  margin-bottom: 4px;
-}
 
 /*стилізація кнопок портфоліо*/
 
-.portfolio-btn-list {
+.portfolio__btn-list {
   display: flex;
   justify-content: center;
 }
 
-.portfolio-btn-item:not(:last-child) {
+.portfolio__btn-item:not(:last-child) {
   margin-right: 8px;
 }
 
-.portfolio-btn {
+.portfolio__btn {
   color: #212121;
   background-color: #f5f4fa;
   font-family: inherit;
@@ -652,15 +632,16 @@ img {
     box-shadow 250ms var(--timing-function);
 }
 
-.portfolio-btn:hover,
-.portfolio-btn:focus {
+.portfolio__btn:hover,
+.portfolio__btn:focus {
   color: #ffffff;
   background-color: #2196f3;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
-.portfolio-list {
+
+.portfolio__list {
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
@@ -668,41 +649,55 @@ img {
   margin-bottom: -30px;
 }
 
-.portfolio-list-item {
+.portfolio__item {
   flex-basis: calc(100% / 3 - 30px);
   margin-left: 30px;
   margin-bottom: 30px;
 }
 
-.portfolio-link {
+.portfolio__link {
   text-decoration: none;
   display: block;
   transition: box-shadow 250ms var(--timing-function);
 }
 
-.portfolio-link:hover,
-.portfolio-link:focus {
+.portfolio__link:hover,
+.portfolio__link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.portfolio-list .text {
+
+
+.portfolio__title {
+  color: var(--title-text-color);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+
+
+
+.portfolio__text {
   font-size: 16px;
   line-height: 1.88;
   color: var(--primary-text-color);
 }
 
-.portfolio-content {
+.portfolio__content {
   padding: 20px 24px;
   border: 1px solid #eeeeee;
 }
 
-.portfolio-thump {
+.portfolio__thump {
   position: relative;
   overflow: hidden;
 }
 
-.overlay-text {
+.portfolio__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -722,10 +717,15 @@ img {
   transition: transform 250ms var(--timing-function);
 }
 
-.portfolio-link:hover .overlay-text,
-.portfolio-link:focus .overlay-text {
+.portfolio__link:hover .portfolio__overlay,
+.portfolio__link:focus .portfolio__overlay {
   transform: translateY(0);
 }
+
+
+
+
+
 
 /* --------стилізація модального вікна------  */
 
@@ -750,16 +750,14 @@ img {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-
   padding: 40px;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms var(--timing-function);
 }
 
-.modal-close-btn {
+.close-btn {
   position: absolute;
   display: flex;
   top: 8px;
@@ -769,19 +767,17 @@ img {
   border-radius: 50%;
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
-
   align-items: center;
   justify-content: center;
-
   transition: color 250ms var(--timing-function);
 }
 
-.modal-close-icon {
+.close-btn__icon {
   fill: currentColor;
 }
 
-.modal-close-btn:hover,
-.modal-close-btn:focus {
+.close-btn:hover,
+.close-btn:focus {
   color: var(--brand-color);
 }
 
@@ -793,7 +789,7 @@ img {
 
 /* --------- стилізація форми модального вікна --------- */
 
-.modal-title {
+.modal__title {
   font-weight: 700;
   font-size: 20px;
   line-height: calc(23 / 20);
@@ -811,7 +807,7 @@ img {
   margin-bottom: 10px;
 }
 
-.modal-label {
+.form-field__label {
   margin-bottom: 4px;
   font-size: 12px;
   line-height: calc(14 / 12);
@@ -819,13 +815,13 @@ img {
   color: #757575;
 }
 
-.input-wrap {
+.form-field__input-wrap {
   position: relative;
   color: #212121;
 }
 
 
-.modal-input {
+.form-field__input {
   width: 100%;
   height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -836,7 +832,7 @@ img {
 
 }
 
-.modal-icon {
+.form-field__icon {
   position: absolute;
   top: 50%;
   left: 12px;
@@ -846,7 +842,7 @@ img {
 }
 
 
-.form-field textarea {
+.form-field__textarea {
   height: 120px;
   padding-top: 12px;
   padding-right: 16px;
@@ -865,29 +861,29 @@ img {
 }
 
 
-.form-field textarea::placeholder {
+.form-field__textarea::placeholder {
   font-size: 14px;
   line-height: calc(16 / 14);
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
 }
 
-.modal-input:focus,
-.form-field textarea:focus {
+.form-field__input:focus,
+.form-field__textarea:focus {
   border-color: var(--brand-color);
 }
 
-.modal-input:focus+.modal-icon {
+.form-field__input:focus+.form-field__icon {
   color: var(--brand-color);
 }
 
 
-.check-field {
+.check {
   margin-bottom: 30px;
 }
 
 
-.check-label {
+.check__label {
   font-size: 14px;
   line-height: calc(24 / 14);
   letter-spacing: 0.03em;
@@ -897,7 +893,7 @@ img {
   justify-content: center;
 }
 
-.check-label span {
+.check__icon-wrap {
 
   width: 16px;
   height: 15px;
@@ -911,51 +907,35 @@ img {
 
 
 
-.check-icon {
+.check__icon {
   fill: transparent;
 }
 
-.modal-check:checked+.check-label span {
+.check__input:checked+.check__label span {
   background-color: var(--brand-color);
   border: none;
 }
 
-.modal-check:checked+.check-label .check-icon {
+.check__input:checked+.check__label .check__icon {
   fill: #ffffff;
 }
 
 
 
-.check-label a{
+.chek__link {
   color: #2196f3;
-  margin-left: 4px;}
+  margin-left: 4px;
+}
 
-.modal-send-btn {
-  display: block;
-  width: 200px;
-  height: 50px;
-  color: #ffffff;
-  background-color: var(--brand-color);
-
+.modal__send-btn {
   margin-left: auto;
   margin-right: auto;
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: calc(30 / 16);
   align-items: center;
   text-align: center;
-  letter-spacing: 0.06em;
-  border: 1px solid var(--brand-color);
-  border-radius: 4px;
-
-  transition: background-color 250ms var(--timing-function), box-shadow 250ms var(--timing-function);
+  transition: background-color 250ms var(--timing-function);
 }
 
-.modal-send-btn:hover,
-.modal-send-btn:focus {
+.modal__send-btn:hover,
+.modal__send-btn:focus {
   background-color: #188ce8;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
-
-  
