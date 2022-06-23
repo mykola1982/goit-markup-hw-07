@@ -1,1 +1,15 @@
-body{background: tomato;}
+@import "./utils/vars";
+@import "./base/reset";
+@import "./utils/hidden";
+@import "./base/common";
+
+@import "./components/section";
+@import "./components/container";
+@import "./components/logo";
+@import "./components/title";
+@import "./components/btn";
+
+
+@import "./layout/header";
+@import "./layout/hero";
+
