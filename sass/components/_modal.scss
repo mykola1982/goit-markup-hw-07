@@ -1,0 +1,208 @@
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    transition: opacity 250ms var(--timing-function), visibility 250ms var(--timing-function);
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, 50%) scale(0);
+}
+
+.modal {
+    position: absolute;
+    width: 528px;
+    min-height: 581px;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+        0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms var(--timing-function);
+}
+
+.close-btn {
+    position: absolute;
+    display: flex;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    transition: color 250ms var(--timing-function);
+}
+
+.close-btn__icon {
+    fill: currentColor;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--brand-color);
+}
+
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --------- стилізація форми модального вікна --------- */
+
+.modal__title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: calc(23 / 20);
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: var(--title-text-color);
+    margin-bottom: 12px;
+    display: block;
+}
+
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-field__label {
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+    letter-spacing: 0.01em;
+    color: #757575;
+}
+
+.form-field__input-wrap {
+    position: relative;
+    color: #212121;
+}
+
+
+.form-field__input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    outline: none;
+    padding-left: 42px;
+    transition: border-color 250ms var(--timing-function);
+
+}
+
+.form-field__icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    fill: currentColor;
+    transition: color 250ms var(--timing-function);
+}
+
+
+.form-field__textarea {
+    height: 120px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    outline: none;
+    resize: none;
+    transition: border-color 250ms var(--timing-function);
+
+}
+
+.comment-field {
+    margin-bottom: 20px;
+}
+
+
+.form-field__textarea::placeholder {
+    font-size: 14px;
+    line-height: calc(16 / 14);
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+}
+
+.form-field__input:focus,
+.form-field__textarea:focus {
+    border-color: var(--brand-color);
+}
+
+.form-field__input:focus+.form-field__icon {
+    color: var(--brand-color);
+}
+
+
+.check {
+    margin-bottom: 30px;
+}
+
+
+.check__label {
+    font-size: 14px;
+    line-height: calc(24 / 14);
+    letter-spacing: 0.03em;
+    color: #757575;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check__icon-wrap {
+    width: 16px;
+    height: 15px;
+    border: 2px solid #212121;
+    border-radius: 2px;
+    margin-right: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.check__icon {
+    fill: transparent;
+}
+
+.check__input:checked+.check__label span {
+    background-color: var(--brand-color);
+    border: none;
+}
+
+.check__input:checked+.check__label .check__icon {
+    fill: #ffffff;
+}
+
+
+.chek__link {
+    color: #2196f3;
+    margin-left: 4px;
+}
+
+.modal__send-btn {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    text-align: center;
+    transition: background-color 250ms var(--timing-function);
+}
+
+.modal__send-btn:hover,
+.modal__send-btn:focus {
+    background-color: #188ce8;
+}
